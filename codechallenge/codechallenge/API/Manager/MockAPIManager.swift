@@ -26,7 +26,7 @@ class MockAPIManager: APIManagerProtocol {
         }
 
         // Add delay to simulate response latency
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
             self.parser.json(data: data, completion: completion)
         })
     }
