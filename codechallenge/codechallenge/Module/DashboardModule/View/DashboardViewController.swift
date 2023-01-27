@@ -10,8 +10,6 @@ import SwiftUI
 
 class DashboardViewController: UIViewController {
 
-    let swiftUIController = UIHostingController(rootView: ProfileView())
-
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -33,6 +31,15 @@ class DashboardViewController: UIViewController {
     }
 
     @IBAction func showSwiftUIVersion(_ sender: Any) {
-        navigationController?.pushViewController(swiftUIController, animated: true)
+        let apiManager = MockAPIManager()
+        let interactor = ProfileInteractor(apiManager: apiManager)
+        let presenter = ProfilePresenter(interactor: interactor)
+        let profileVC = ProfileView(presenter: presenter)
+
+        interactor.presenter = presenter
+        presenter.view = profileVC
+
+        let hostingVC = UIHostingController(rootView: profileVC)
+        navigationController?.pushViewController(hostingVC, animated: true)
     }
 }

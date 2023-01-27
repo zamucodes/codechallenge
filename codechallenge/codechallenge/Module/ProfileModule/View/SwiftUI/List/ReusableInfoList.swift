@@ -1,5 +1,5 @@
 //
-//  ReusableInfoTable.swift
+//  ReusableInfoList.swift
 //  codechallenge
 //
 //  Created by Samuel Chavez on 27/01/23.
@@ -7,23 +7,21 @@
 
 import SwiftUI
 
-struct ReusableInfoTable: View {
+struct ReusableInfoList: View {
     var listTitle: String
     var fields: [ProfileInfoModel] = []
-
-    @State private var name: String = ""
+    var isSecureText: Bool
+    var saveAction: () -> Void
+    var valueChanged: (ProfileInfoModel, String) -> Void
 
     var body: some View {
         List {
             Section(header: Text(listTitle)) {
                 ForEach(0..<fields.count, id: \.self) { item in
-                    HStack {
-                        Group {
-                            Text(fields[item].inputField.rawValue)
-                            Spacer(minLength: 20)
-                            TextField("", text: $name)
-                        }
-                    }
+                    ReusableInputCell(fieldName: fields[item],
+                                      isSecureText: isSecureText,
+                                      fieldValue: fields[item].value,
+                                      valueChanged: valueChanged)
                 }
             }
         }
@@ -31,7 +29,7 @@ struct ReusableInfoTable: View {
         HStack() {
             Spacer()
             Button {
-                print("handle save action")
+                saveAction()
             } label: {
                 HStack(spacing: 8) {
                     Text("SAVE CHANGES")
@@ -45,17 +43,20 @@ struct ReusableInfoTable: View {
         }
         .scrollContentBackground(.hidden)
         .background(.clear)
-        .padding(.top, 20)
     }
 }
 
 struct ReusableInfoTable_Previews: PreviewProvider {
     static var previews: some View {
-        ReusableInfoTable(listTitle: "BASIC INFORMATION",
-                          fields: [
+        ReusableInfoList(listTitle: "BASIC INFORMATION",
+                         fields: [
                             .init(inputField: .userName, value: "Test"),
                             .init(inputField: .firstName, value: "Test"),
                             .init(inputField: .lastName, value: "Test")
-                          ])
+                         ],
+                         isSecureText: false,
+                         saveAction: { },
+                         valueChanged: { _, _ in }
+        )
     }
 }
