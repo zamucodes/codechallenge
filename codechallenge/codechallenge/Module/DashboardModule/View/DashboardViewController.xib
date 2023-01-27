@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="codechallenge" customModuleProvider="target">
             <connections>
+                <outlet property="showSwiftUI" destination="sF8-VA-yu1" id="aUZ-07-oWR"/>
+                <outlet property="showUIKit" destination="F7u-hj-btQ" id="PRE-76-sbZ"/>
                 <outlet property="view" destination="zcg-hU-7NK" id="AVJ-6v-Gc0"/>
             </connections>
         </placeholder>
@@ -18,18 +20,27 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PK0-bc-BRT">
-                    <rect key="frame" x="157.33333333333334" y="348.66666666666669" width="78.666666666666657" height="180.00000000000006"/>
+                <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="PK0-bc-BRT">
+                    <rect key="frame" x="126.66666666666669" y="278.66666666666669" width="140" height="320.00000000000006"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7u-hj-btQ">
-                            <rect key="frame" x="0.0" y="0.0" width="78.666666666666671" height="90"/>
+                            <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                             <color key="backgroundColor" systemColor="tintColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="90" id="ixX-4D-vKc"/>
+                                <constraint firstAttribute="width" constant="140" id="cJa-bT-iiI"/>
+                                <constraint firstAttribute="height" constant="140" id="ixX-4D-vKc"/>
                             </constraints>
                             <color key="tintColor" red="0.20784313730000001" green="0.3921568627" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="UIKit">
+                            <buttonConfiguration key="configuration" style="plain">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="UIKit">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                            <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </buttonConfiguration>
                             <connections>
@@ -37,12 +48,18 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sF8-VA-yu1">
-                            <rect key="frame" x="0.0" y="90" width="78.666666666666671" height="90"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="90" id="bgk-ES-pxU"/>
-                            </constraints>
+                            <rect key="frame" x="0.0" y="180" width="140" height="140"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="SwiftUI"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="SwiftUI">
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Helvetica-Bold"/>
+                                            <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </buttonConfiguration>
                             <connections>
                                 <action selector="showSwiftUIVersion:" destination="-1" eventType="touchUpInside" id="84K-I9-S5L"/>
                             </connections>
@@ -51,7 +68,7 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="1wi-mb-CS6"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemYellowColor"/>
             <constraints>
                 <constraint firstItem="PK0-bc-BRT" firstAttribute="centerX" secondItem="1wi-mb-CS6" secondAttribute="centerX" id="oaE-hT-wym"/>
                 <constraint firstItem="PK0-bc-BRT" firstAttribute="centerY" secondItem="1wi-mb-CS6" secondAttribute="centerY" id="uuU-24-KiF"/>
@@ -60,8 +77,8 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

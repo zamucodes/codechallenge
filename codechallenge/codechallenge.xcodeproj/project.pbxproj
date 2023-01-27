@@ -42,6 +42,7 @@
 		F88694772984559E002420FE /* ReusableInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88694762984559E002420FE /* ReusableInputCell.swift */; };
 		F8C54EE329845C4900362E6B /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8869471298420D7002420FE /* ProfileInteractor.swift */; };
 		F8C54EE529848B9900362E6B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C54EE429848B9900362E6B /* LoadingView.swift */; };
+		F8C54EEE298492AA00362E6B /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C54EED298492AA00362E6B /* ProfileBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		F8869473298435F4002420FE /* ReusableInfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableInfoList.swift; sourceTree = "<group>"; };
 		F88694762984559E002420FE /* ReusableInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableInputCell.swift; sourceTree = "<group>"; };
 		F8C54EE429848B9900362E6B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		F8C54EED298492AA00362E6B /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,38 +166,18 @@
 		F886942429836CDD002420FE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F886942829836D95002420FE /* SwiftUI */,
-				F886942529836CE2002420FE /* UIKit */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		F886942529836CE2002420FE /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
 				F886943F298372EF002420FE /* Cells */,
 				F886944B2983A839002420FE /* Extensions */,
 				F886942B29836E34002420FE /* ProfileViewController.swift */,
 				F8869442298398DC002420FE /* ProfileViewController.xib */,
 			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		F886942829836D95002420FE /* SwiftUI */ = {
-			isa = PBXGroup;
-			children = (
-				F8869478298458EA002420FE /* List */,
-				F886942929836DA9002420FE /* ProfileView.swift */,
-				F8C54EE429848B9900362E6B /* LoadingView.swift */,
-			);
-			path = SwiftUI;
+			path = View;
 			sourceTree = "<group>";
 		};
 		F886942D2983706E002420FE /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				F886943429837163002420FE /* ProfileViewPresenter.swift */,
-				F886946F298420B9002420FE /* ProfilePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -204,28 +186,15 @@
 			isa = PBXGroup;
 			children = (
 				F88694382983717D002420FE /* ProfileViewInteractor.swift */,
-				F8869471298420D7002420FE /* ProfileInteractor.swift */,
 			);
 			path = Interactor;
-			sourceTree = "<group>";
-		};
-		F886942F2983707D002420FE /* Router */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		F886943029837086002420FE /* ProfileModule */ = {
 			isa = PBXGroup;
 			children = (
-				F88694522983AC6E002420FE /* Builder */,
-				F88694482983A35B002420FE /* Entity */,
-				F886943329837125002420FE /* Protocols */,
-				F886942F2983707D002420FE /* Router */,
-				F886942E29837074002420FE /* Interactor */,
-				F886942D2983706E002420FE /* Presenter */,
-				F886942429836CDD002420FE /* View */,
+				F8C54EEC2984926900362E6B /* UIKit */,
+				F8C54EE62984919C00362E6B /* SwiftUI */,
 			);
 			path = ProfileModule;
 			sourceTree = "<group>";
@@ -362,6 +331,72 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		F8C54EE62984919C00362E6B /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				F8C54EE7298491A800362E6B /* Builder */,
+				F8C54EEB2984925700362E6B /* Interactor */,
+				F8C54EEA2984925200362E6B /* Presenter */,
+				F8C54EE8298491C100362E6B /* View */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		F8C54EE7298491A800362E6B /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				F8C54EED298492AA00362E6B /* ProfileBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		F8C54EE8298491C100362E6B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F8C54EE9298491F600362E6B /* LoadingView */,
+				F8869478298458EA002420FE /* List */,
+				F886942929836DA9002420FE /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F8C54EE9298491F600362E6B /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				F8C54EE429848B9900362E6B /* LoadingView.swift */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
+		F8C54EEA2984925200362E6B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F886946F298420B9002420FE /* ProfilePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F8C54EEB2984925700362E6B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F8869471298420D7002420FE /* ProfileInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F8C54EEC2984926900362E6B /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				F88694522983AC6E002420FE /* Builder */,
+				F88694482983A35B002420FE /* Entity */,
+				F886943329837125002420FE /* Protocols */,
+				F886942E29837074002420FE /* Interactor */,
+				F886942D2983706E002420FE /* Presenter */,
+				F886942429836CDD002420FE /* View */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -465,6 +500,7 @@
 				F886946C2983CA12002420FE /* PasswordRequest.swift in Sources */,
 				F886943B29837187002420FE /* ProfileViewProtocols.swift in Sources */,
 				F886942729836D06002420FE /* DashboardViewController.swift in Sources */,
+				F8C54EEE298492AA00362E6B /* ProfileBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
