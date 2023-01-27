@@ -41,6 +41,7 @@
 		F8869475298448FA002420FE /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F886946F298420B9002420FE /* ProfilePresenter.swift */; };
 		F88694772984559E002420FE /* ReusableInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88694762984559E002420FE /* ReusableInputCell.swift */; };
 		F8C54EE329845C4900362E6B /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8869471298420D7002420FE /* ProfileInteractor.swift */; };
+		F8C54EE529848B9900362E6B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C54EE429848B9900362E6B /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		F8869471298420D7002420FE /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		F8869473298435F4002420FE /* ReusableInfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableInfoList.swift; sourceTree = "<group>"; };
 		F88694762984559E002420FE /* ReusableInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableInputCell.swift; sourceTree = "<group>"; };
+		F8C54EE429848B9900362E6B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			children = (
 				F8869478298458EA002420FE /* List */,
 				F886942929836DA9002420FE /* ProfileView.swift */,
+				F8C54EE429848B9900362E6B /* LoadingView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				F88694512983AB73002420FE /* PasswordResponse.swift in Sources */,
 				F886942A29836DA9002420FE /* ProfileView.swift in Sources */,
 				F88694772984559E002420FE /* ReusableInputCell.swift in Sources */,
+				F8C54EE529848B9900362E6B /* LoadingView.swift in Sources */,
 				F886944A2983A3A4002420FE /* ProfileInfoModel.swift in Sources */,
 				F886944F2983AB17002420FE /* UserInfoResponse.swift in Sources */,
 				F8C54EE329845C4900362E6B /* ProfileInteractor.swift in Sources */,

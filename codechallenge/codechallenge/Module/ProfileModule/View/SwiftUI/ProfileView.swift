@@ -16,25 +16,32 @@ struct ProfileView: View {
                                                 blue: 24/255)
 
     var body: some View {
-        VStack {
-            ReusableInfoList(listTitle: "BASIC INFORMATION",
-                             fields: presenter.profileInfoData,
-                             isSecureText: false) {
-                presenter.saveUserInfo()
-            } valueChanged: { inputField, value in
-                presenter.changeUserInfo(data: inputField, value: value)
-            }
-            
-            ReusableInfoList(listTitle: "PASSWORD",
-                             fields: presenter.passwordData,
-                             isSecureText: true) {
-                presenter.saveUserPassword()
-            } valueChanged: { inputField, value in
-                presenter.changeUserInfo(data: inputField, value: value)
+        LoadingView(isShowing: $presenter.isLoading) {
+            VStack {
+                ReusableInfoList(listTitle: "BASIC INFORMATION",
+                                 fields: presenter.profileInfoData,
+                                 isSecureText: false) {
+                    presenter.saveUserInfo()
+                } valueChanged: { inputField, value in
+                    presenter.changeUserInfo(data: inputField, value: value)
+                }
+
+                ReusableInfoList(listTitle: "PASSWORD",
+                                 fields: presenter.passwordData,
+                                 isSecureText: true) {
+                    presenter.saveUserPassword()
+                } valueChanged: { inputField, value in
+                    presenter.changeUserPassword(data: inputField, value: value)
+                }
             }
         }
         .onAppear {
             presenter.getUserInfo(for: "mine")
+        }
+        .alert(item: $presenter.alertView) { alert in
+            Alert(title: Text(alert.title),
+                  message: Text(alert.message),
+                  dismissButton: .cancel())
         }
         .padding(.top, 20)
         .navigationBarTitle("User Profile", displayMode: .large)

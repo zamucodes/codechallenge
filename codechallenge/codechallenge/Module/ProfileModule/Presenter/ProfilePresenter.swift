@@ -8,12 +8,20 @@
 import Combine
 import SwiftUI
 
+struct CustomAlert: Identifiable {
+    var id = UUID()
+    let title: String
+    let message: String
+}
+
 class ProfilePresenter: ObservableObject {
 
     private let interactor: ProfileInteractor
     var view: ProfileView?
     @Published var profileInfoData: [ProfileInfoModel] = []
     @Published var passwordData: [ProfileInfoModel] = []
+    @Published var isLoading: Bool = true
+    @Published var alertView: CustomAlert?
 
     private var userInput: ProfileData?
     private var userPasswordInput: PasswordData = PasswordData(
@@ -26,6 +34,7 @@ class ProfilePresenter: ObservableObject {
     }
 
     func getUserInfo(for username: String) {
+        isLoading = true
         interactor.getProfile(for: username)
     }
 
@@ -33,8 +42,7 @@ class ProfilePresenter: ObservableObject {
         guard let userInput = userInput else {
             return
         }
-
-//        view?.showLoading()
+        isLoading = true
         interactor.updateProfile(input: userInput)
     }
 
@@ -43,12 +51,11 @@ class ProfilePresenter: ObservableObject {
 
         if passInput.newPassword.isEmpty
             || passInput.newPasswordConfirmation.isEmpty {
-
-
+            showAlert(title: "ERROR", message: "Password cannot be empty")
         } else if passInput.newPassword != passInput.newPasswordConfirmation {
-
+            showAlert(title: "ERROR", message: "Passwords do not match")
         } else {
-
+            isLoading = true
             interactor.updatePassword(input: userPasswordInput)
         }
     }
@@ -62,7 +69,6 @@ class ProfilePresenter: ObservableObject {
         ]
         showAlert(title: "SUCCESS", message: response.message)
     }
-
 
     func onSuccessUpdateProfileInfo(response: UserInfoResponse) {
         showAlert(title: "SUCCESS", message: response.message)
@@ -111,7 +117,7 @@ class ProfilePresenter: ObservableObject {
     }
 
     private func showAlert(title: String, message: String) {
-
+        isLoading = false
+        alertView = CustomAlert(title: title, message: message)
     }
-
 }
