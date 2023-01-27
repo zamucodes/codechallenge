@@ -10,7 +10,7 @@ import UIKit
 struct ProfileViewBuilder {
 
     static func build() -> UIViewController {
-        let interactor = ProfileViewInteractor()
+        let interactor = ProfileViewInteractor(apiManager: MockAPIManager())
         let presenter = ProfileViewPresenter(interactor: interactor)
 
         let view = ProfileViewController(presenter: presenter)

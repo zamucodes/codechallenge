@@ -28,6 +28,15 @@
 		F88694512983AB73002420FE /* PasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88694502983AB73002420FE /* PasswordResponse.swift */; };
 		F88694542983AC88002420FE /* ProfileViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88694532983AC88002420FE /* ProfileViewBuilder.swift */; };
 		F88694562983C120002420FE /* ProfileViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88694552983C120002420FE /* ProfileViewController+UITableView.swift */; };
+		F886945A2983C416002420FE /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88694592983C416002420FE /* APIManager.swift */; };
+		F886945D2983C4E0002420FE /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F886945C2983C4E0002420FE /* JsonParser.swift */; };
+		F88694612983C80F002420FE /* userData.json in Resources */ = {isa = PBXBuildFile; fileRef = F886945E2983C80F002420FE /* userData.json */; };
+		F88694622983C80F002420FE /* userDataUpdated.json in Resources */ = {isa = PBXBuildFile; fileRef = F886945F2983C80F002420FE /* userDataUpdated.json */; };
+		F88694632983C80F002420FE /* userPasswordUpdated.json in Resources */ = {isa = PBXBuildFile; fileRef = F88694602983C80F002420FE /* userPasswordUpdated.json */; };
+		F88694662983C876002420FE /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88694652983C876002420FE /* APIRequest.swift */; };
+		F886946A2983CA08002420FE /* UserInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88694692983CA08002420FE /* UserInfoRequest.swift */; };
+		F886946C2983CA12002420FE /* PasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F886946B2983CA12002420FE /* PasswordRequest.swift */; };
+		F886946E2983CCD0002420FE /* MockAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F886946D2983CCD0002420FE /* MockAPIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +63,15 @@
 		F88694502983AB73002420FE /* PasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResponse.swift; sourceTree = "<group>"; };
 		F88694532983AC88002420FE /* ProfileViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewBuilder.swift; sourceTree = "<group>"; };
 		F88694552983C120002420FE /* ProfileViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UITableView.swift"; sourceTree = "<group>"; };
+		F88694592983C416002420FE /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		F886945C2983C4E0002420FE /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		F886945E2983C80F002420FE /* userData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userData.json; sourceTree = "<group>"; };
+		F886945F2983C80F002420FE /* userDataUpdated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userDataUpdated.json; sourceTree = "<group>"; };
+		F88694602983C80F002420FE /* userPasswordUpdated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userPasswordUpdated.json; sourceTree = "<group>"; };
+		F88694652983C876002420FE /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		F88694692983CA08002420FE /* UserInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRequest.swift; sourceTree = "<group>"; };
+		F886946B2983CA12002420FE /* PasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRequest.swift; sourceTree = "<group>"; };
+		F886946D2983CCD0002420FE /* MockAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				F886943C2983725B002420FE /* Utilities */,
+				F88694572983C3F3002420FE /* API */,
 				F886942129834889002420FE /* Module */,
 				F886942029834883002420FE /* Resources */,
 				F886940C29834676002420FE /* AppDelegate.swift */,
@@ -101,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				F88694222983490C002420FE /* Assets */,
-				F886942329834916002420FE /* Jsons */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -126,6 +144,9 @@
 		F886942329834916002420FE /* Jsons */ = {
 			isa = PBXGroup;
 			children = (
+				F886945E2983C80F002420FE /* userData.json */,
+				F886945F2983C80F002420FE /* userDataUpdated.json */,
+				F88694602983C80F002420FE /* userPasswordUpdated.json */,
 			);
 			path = Jsons;
 			sourceTree = "<group>";
@@ -241,8 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				F88694492983A3A3002420FE /* ProfileInfoModel.swift */,
-				F886944E2983AB17002420FE /* UserInfoResponse.swift */,
-				F88694502983AB73002420FE /* PasswordResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -262,6 +281,62 @@
 				F88694532983AC88002420FE /* ProfileViewBuilder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		F88694572983C3F3002420FE /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F88694672983C968002420FE /* Models */,
+				F886942329834916002420FE /* Jsons */,
+				F88694682983C9F2002420FE /* Requests */,
+				F88694642983C84C002420FE /* APIRequest */,
+				F886945B2983C4CB002420FE /* Parser */,
+				F88694582983C402002420FE /* Manager */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F88694582983C402002420FE /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F88694592983C416002420FE /* APIManager.swift */,
+				F886946D2983CCD0002420FE /* MockAPIManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		F886945B2983C4CB002420FE /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				F886945C2983C4E0002420FE /* JsonParser.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		F88694642983C84C002420FE /* APIRequest */ = {
+			isa = PBXGroup;
+			children = (
+				F88694652983C876002420FE /* APIRequest.swift */,
+			);
+			path = APIRequest;
+			sourceTree = "<group>";
+		};
+		F88694672983C968002420FE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F886944E2983AB17002420FE /* UserInfoResponse.swift */,
+				F88694502983AB73002420FE /* PasswordResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F88694682983C9F2002420FE /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				F88694692983CA08002420FE /* UserInfoRequest.swift */,
+				F886946B2983CA12002420FE /* PasswordRequest.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,9 +398,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F88694472983A070002420FE /* UserInfoTableViewCell.xib in Resources */,
+				F88694632983C80F002420FE /* userPasswordUpdated.json in Resources */,
 				F886941929834679002420FE /* LaunchScreen.storyboard in Resources */,
 				F886941629834679002420FE /* Assets.xcassets in Resources */,
 				F8869443298398DC002420FE /* ProfileViewController.xib in Resources */,
+				F88694622983C80F002420FE /* userDataUpdated.json in Resources */,
+				F88694612983C80F002420FE /* userData.json in Resources */,
 				F88694412983987D002420FE /* DashboardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,20 +415,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F886946A2983CA08002420FE /* UserInfoRequest.swift in Sources */,
 				F88694462983A070002420FE /* UserInfoTableViewCell.swift in Sources */,
+				F886946E2983CCD0002420FE /* MockAPIManager.swift in Sources */,
 				F88694392983717D002420FE /* ProfileViewInteractor.swift in Sources */,
 				F88694512983AB73002420FE /* PasswordResponse.swift in Sources */,
 				F886942A29836DA9002420FE /* ProfileView.swift in Sources */,
 				F886944A2983A3A4002420FE /* ProfileInfoModel.swift in Sources */,
 				F886944F2983AB17002420FE /* UserInfoResponse.swift in Sources */,
+				F88694662983C876002420FE /* APIRequest.swift in Sources */,
 				F886943529837163002420FE /* ProfileViewPresenter.swift in Sources */,
 				F88694562983C120002420FE /* ProfileViewController+UITableView.swift in Sources */,
+				F886945D2983C4E0002420FE /* JsonParser.swift in Sources */,
 				F886940D29834676002420FE /* AppDelegate.swift in Sources */,
 				F88694542983AC88002420FE /* ProfileViewBuilder.swift in Sources */,
 				F886942C29836E34002420FE /* ProfileViewController.swift in Sources */,
 				F886944D2983A849002420FE /* ProfileViewController+InputTextCellDelegate.swift in Sources */,
+				F886945A2983C416002420FE /* APIManager.swift in Sources */,
 				F886943E2983726D002420FE /* UIViewController+Ext.swift in Sources */,
 				F886940F29834676002420FE /* SceneDelegate.swift in Sources */,
+				F886946C2983CA12002420FE /* PasswordRequest.swift in Sources */,
 				F886943B29837187002420FE /* ProfileViewProtocols.swift in Sources */,
 				F886942729836D06002420FE /* DashboardViewController.swift in Sources */,
 			);

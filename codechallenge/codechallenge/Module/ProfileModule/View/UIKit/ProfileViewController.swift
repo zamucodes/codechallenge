@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupTables()
-        presenter?.getUserInfo()
+        presenter?.getUserInfo(for: "mine")
     }
 
     @IBAction func onSaveUserInfo(_ sender: Any) {

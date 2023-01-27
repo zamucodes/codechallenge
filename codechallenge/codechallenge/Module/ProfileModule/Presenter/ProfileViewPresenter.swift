@@ -11,16 +11,10 @@ class ProfileViewPresenter {
     weak var view: ProfileViewProtocol?
     var interactor: ProfileViewInteractorProtocol?
 
-    private var profileInfoData: [ProfileInfoModel] = [
-        .init(inputField: .userName, value: "abcde"),
-        .init(inputField: .firstName, value: "John"),
-        .init(inputField: .lastName, value: "Wayne")
-    ]
+    private var profileInfoData: [ProfileInfoModel] = []
+
     // Initialize password data empty
-    private var passwordData: [ProfileInfoModel] = [
-        .init(inputField: .password, value: ""),
-        .init(inputField: .confirmPassword, value: "")
-    ]
+    private var passwordData: [ProfileInfoModel] = []
 
     private var userInput: ProfileData?
     private var userPasswordInput: PasswordData = PasswordData(
@@ -35,15 +29,20 @@ class ProfileViewPresenter {
 
 extension ProfileViewPresenter: ProfileViewPresenterProtocol {
     // MARK: - WS logic, handle responses and updates to the View
-    func getUserInfo() {
+    func getUserInfo(for username: String) {
         view?.showLoading()
-        // TODO Call interactor get profile
+        interactor?.getProfile(for: username)
     }
 
     func onSuccessGetProfileInfo(response: UserInfoResponse) {
         view?.hideLoading()
         userInput = response.data
         profileInfoData = profileDataToArray(response)
+        passwordData = [
+            .init(inputField: .password, value: ""),
+            .init(inputField: .confirmPassword, value: "")
+        ]
+        
         view?.reloadInfo()
     }
 
@@ -61,7 +60,7 @@ extension ProfileViewPresenter: ProfileViewPresenterProtocol {
         }
 
         view?.showLoading()
-        // TODO Call interactor save userinfo
+        interactor?.updateProfile(input: userInput)
     }
 
     func saveUserPassword() {
@@ -75,7 +74,7 @@ extension ProfileViewPresenter: ProfileViewPresenterProtocol {
             view?.showAlert("ERROR", message: "Passwords do not match")
         } else {
             view?.showLoading()
-            // TODO Call interactor save password
+            interactor?.updatePassword(input: userPasswordInput)
         }
     }
 
@@ -87,6 +86,11 @@ extension ProfileViewPresenter: ProfileViewPresenterProtocol {
     func onSuccessUpdatePassword(response: PasswordResponse) {
         view?.hideLoading()
         view?.showAlert("SUCCESS", message: response.message)
+    }
+
+    func onServiceError(error: APIErrorType) {
+        view?.hideLoading()
+        view?.showAlert("ERROR", message: error.localizedDescription)
     }
 
     // MARK: - Data retrieve to show in rows

@@ -15,7 +15,7 @@ protocol ProfileViewProtocol: AnyObject {
 
 protocol ProfileViewPresenterProtocol: AnyObject {
     var interactor: ProfileViewInteractorProtocol? { get }
-    func getUserInfo()
+    func getUserInfo(for username: String)
     func onSuccessGetProfileInfo(response: UserInfoResponse)
 
     // Save functions
@@ -24,7 +24,7 @@ protocol ProfileViewPresenterProtocol: AnyObject {
     func onSuccessUpdateProfileInfo(response: UserInfoResponse)
     func onSuccessUpdatePassword(response: PasswordResponse)
 
-    // func onServiceError(error: NetworkStackError)
+    func onServiceError(error: APIErrorType)
 
     func getNumberOfProfileItems() -> Int
     func getProfileItem(_ idx: Int) -> ProfileInfoModel
@@ -36,4 +36,8 @@ protocol ProfileViewPresenterProtocol: AnyObject {
 }
 
 protocol ProfileViewInteractorProtocol: AnyObject {
+    var presenter: ProfileViewPresenterProtocol? { get set }
+    func getProfile(for username: String)
+    func updateProfile(input: ProfileData)
+    func updatePassword(input: PasswordData)
 }

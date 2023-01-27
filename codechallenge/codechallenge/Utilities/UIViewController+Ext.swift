@@ -14,7 +14,7 @@ extension UIViewController {
     func showLoader() {
         loadingBackground = UIView(frame: view.bounds)
         loadingBackground?.backgroundColor = .white
-        loadingBackground?.alpha = 0.7
+        loadingBackground?.alpha = 0.9
 
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.center = loadingBackground?.center ?? CGPoint.zero
